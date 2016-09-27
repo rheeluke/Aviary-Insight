@@ -16,7 +16,9 @@ import org.apache.kafka.streams.kstream.KStreamBuilder;
 import org.apache.kafka.streams.kstream.KTable;
 import org.apache.kafka.streams.processor.WallclockTimestampExtractor;
 
+import java.io.IOException;
 import java.util.Properties;
+import java.util.ArrayList;
 
 @SuppressWarnings("unchecked")
 public class TwitterProcessor {
@@ -36,11 +38,11 @@ public class TwitterProcessor {
 
         final KStream<String, Tweet> tweetKStream = kStreamBuilder.stream("twitter");
 
-        final KStream<String, Tweet> relevantStream = tweetKStream
-            .filter((dummy, tweet) -> new Boolean(tweet.get("entites").get("hashtags").size() > 1))
-            .mapValues((tweet) -> tweet.get("entities").get("hashtags").stream().map((hashtag) -> hashtag.get("text")).toArray());
+        final KStream<String, String> relevantStream = tweetKStream
+            .filter((dummy, tweet) -> tweet.getEntities().getHashtags().size() > 1)
+            .mapValues((tweet) -> tweet.getEntities().getHashtags().stream().map((hashtag) -> hashtag.get("text")).toArray().toString());
 
-        relevantStream.to(Serdes.String().getClass().getName()), Serdes.String().getClass().getName()), "druid");
+        relevantStream.to(Serdes.String(), Serdes.String(), "druid");
 
         kafkaStreams = new KafkaStreams(kStreamBuilder, streamsConfig);
 

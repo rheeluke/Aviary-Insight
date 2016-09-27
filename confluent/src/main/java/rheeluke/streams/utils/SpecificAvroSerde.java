@@ -50,3 +50,4 @@ public class SpecificAvroSerde<T extends  org.apache.avro.specific.SpecificRecor
     inner.serializer().close();
     inner.deserializer().close();
   }
+}

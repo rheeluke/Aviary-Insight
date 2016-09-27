@@ -40,7 +40,7 @@
         <scala.version>${kafka.scala.version}.8</scala.version>
         <confluent.version>3.0.1</confluent.version>
         <scalatest.version>2.2.6</scalatest.version>
-        <avro.version>1.7.7</avro.version>
+        <avro.version>1.8.1</avro.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -89,7 +89,7 @@
             <artifactId>zkclient</artifactId>
             <version>0.9</version>
         </dependency>
-
+    </dependencies>
     <build>
 
         <pluginManagement>
@@ -187,8 +187,8 @@
                             <goal>schema</goal>
                         </goals>
                         <configuration>
-                            <sourceDirectory>src/main/resources/avro/io/confluent/examples/streams</sourceDirectory>
-                            <outputDirectory>${project.build.directory}/generated-sources</outputDirectory>
+                            <sourceDirectory>${project.basedir}/src/main/resources/avro/rheeluke/streams/</sourceDirectory>
+                            <outputDirectory>${project.basedir}/src/main/java/rheeluke/streams/</outputDirectory>
                             <stringType>String</stringType>
                         </configuration>
                     </execution>

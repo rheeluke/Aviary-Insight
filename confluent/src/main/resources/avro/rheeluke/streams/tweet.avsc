@@ -84,8 +84,8 @@
                             "null",
                             {"type":"array",
                                 "items":{
-                                    "type":"record","
-                                    name":"UserMention",
+                                    "type":"record",
+                                    "name":"UserMention",
                                     "fields":[
                                         {"name":"id","type":"long"},
                                         {"name":"name","type":"string"},
