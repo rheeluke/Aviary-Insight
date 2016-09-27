@@ -27,10 +27,10 @@
 </property>
 <property>
   <name>fs.s3a.access.key</name>
-  <value>AKIAIPXULHZLTMPPMDGQ</value>
+  <value></value>
 </property>
 <property>
   <name>fs.s3a.secret.key</name>
-  <value>lCxNKOAPQWDbpLOLOGg3gkCFvRLSH1qWWOXOCB0u</value>
+  <value></value>
 </property>
 </configuration>
