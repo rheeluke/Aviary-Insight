@@ -1,0 +1,12 @@
+/twitter-source.properties.example
+/connect-standalone.properties
+/kafka-connect-twitter.iml
+/.idea
+# sbt specific
+target/
+# Scala-IDE specific
+/.settings
+/.project
+/.classpath
+/.cache-main
+/.cache-tests

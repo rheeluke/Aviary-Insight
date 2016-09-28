@@ -1,0 +1,5 @@
+/streams-processor.iml
+/.idea
+# sbt specific
+target/
+
