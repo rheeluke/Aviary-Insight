@@ -1,0 +1,51 @@
+bootstrap.servers=ec2-54-70-146-1.us-west-2.compute.amazonaws.com:9092,ec2-54-148-245-151.us-west-2.compute.amazonaws.com:9092,ec2-52-34-186-244.us-west-2.compute.amazonaws.com:9092,ec2-52-38-218-132.us-west-2.compute.amazonaws.com:9092,ec2-52-42-233-20.us-west-2.compute.amazonaws.com:9092
+
+zookeeper.connect=ec2-54-70-146-1.us-west-2.compute.amazonaws.com:2181,ec2-54-148-245-151.us-west-2.compute.amazonaws.com:2181,ec2-52-34-186-244.us-west-2.compute.amazonaws.com:2181,ec2-52-38-218-132.us-west-2.compute.amazonaws.com:2181,ec2-52-42-233-20.us-west-2.compute.amazonaws.com:2181
+
+1 MASTER NODE:
+    Hostname:   ip-172-31-1-10
+    Public DNS: ec2-54-70-146-1.us-west-2.compute.amazonaws.com
+    Private IP: 172.31.1.10
+    Elastic IP: 54.70.146.1
+
+2 WORKER NODE:
+    Hostname:   ip-172-31-1-14
+    Public DNS: ec2-52-43-235-103.us-west-2.compute.amazonaws.com
+    Private IP: 172.31.1.14
+    Elastic IP: 52.43.235.103
+
+3 WORKER NODE:
+    Hostname:   ip-172-31-1-13
+    Public DNS: ec2-54-71-20-46.us-west-2.compute.amazonaws.com
+    Private IP: 172.31.1.13
+    Elastic IP: 54.71.20.46
+
+4 WORKER NODE:
+    Hostname:   ip-172-31-1-5
+    Public DNS: ec2-52-35-196-76.us-west-2.compute.amazonaws.com
+    Private IP: 172.31.1.5
+    Elastic IP: 52.35.196.76
+
+5 WORKER NODE:
+    Hostname:   ip-172-31-1-8
+    Public DNS: ec2-54-148-245-151.us-west-2.compute.amazonaws.com
+    Private IP: 172.31.1.8
+    Elastic IP: 54.148.245.151
+
+6 WORKER NODE:
+    Hostname:   ip-172-31-1-7
+    Public DNS: ec2-52-34-186-244.us-west-2.compute.amazonaws.com
+    Private IP: 172.31.1.7
+    Elastic IP: 52.34.186.244
+
+7 WORKER NODE:
+    Hostname:   ip-172-31-1-6
+    Public DNS: ec2-52-38-218-132.us-west-2.compute.amazonaws.com
+    Private IP: 172.31.1.6
+    Elastic IP: 52.38.218.132
+
+8 WORKER NODE:
+    Hostname:   ip-172-31-1-4
+    Public DNS: ec2-52-42-233-20.us-west-2.compute.amazonaws.com
+    Private IP: 172.31.1.4
+    Elastic IP: 52.42.233.20
