@@ -1,2 +1,3 @@
 add/kafka-connect-twitter/resources/twitter-source.properties
 kafka-connect-twitter/kafka-connect-twitter/target
+kafka-streams/kafka-streams/target
