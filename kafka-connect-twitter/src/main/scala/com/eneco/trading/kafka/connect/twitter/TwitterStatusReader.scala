@@ -32,20 +32,6 @@ trait StatusToSourceRecord {
   def convert(status: Status, topic: String): SourceRecord
 }
 
-object StatusToStringKeyValue extends StatusToSourceRecord {
-  def convert (status: Status, topic: String): SourceRecord = {
-    new SourceRecord(
-      Map("tweetSource" -> status.getSource).asJava, //source partitions?
-      Map("tweetId" -> status.getId).asJava, //source offsets?
-      topic,
-      null,
-      Schema.STRING_SCHEMA,
-      status.getId.toString,
-      Schema.STRING_SCHEMA,
-      "[" + status.getHashtagEntities.map(hashtag => hashtag.getText).mkString(", ") + "]")
-  }
-}
-
 //object StatusToStringKeyValue extends StatusToSourceRecord {
 //  def convert (status: Status, topic: String): SourceRecord = {
 //
@@ -60,6 +46,26 @@ object StatusToStringKeyValue extends StatusToSourceRecord {
 //      status.getText)
 //  }
 //}
+
+object StatusToStringKeyValue extends StatusToSourceRecord {
+  def convert (status: Status, topic: String): SourceRecord = {
+    new SourceRecord(
+      Map("tweetSource" -> status.getSource).asJava, //source partitions?
+      Map("tweetId" -> status.getId).asJava, //source offsets?
+      topic,
+      null,
+      Schema.STRING_SCHEMA,
+      status.getHashtagEntities.toSeq.length.toString,
+      Schema.STRING_SCHEMA,
+      "{\"created_at\":\"%s\",\"hashtags\":%s}".format(
+        status.getCreatedAt.toString,
+        status.getHashtagEntities.toSeq
+          .map(hashtag => hashtag.getText)
+          .mkString("[\"", "\",\"", "\"]")
+      )
+    )
+  }
+}
 
 object StatusToTwitterStatusStructure extends StatusToSourceRecord {
   def convert(status: Status, topic: String): SourceRecord = {
