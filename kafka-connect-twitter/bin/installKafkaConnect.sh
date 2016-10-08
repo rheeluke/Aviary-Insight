@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-peg scp to-rem luke-rhee-cluster 2 ../resources/kafka-connect-twitter-0.1-jar-with-dependencies.jar Downloads
+peg scp to-rem lrh 5
+ ../resources/kafka-connect-twitter-0.1-jar-with-dependencies.jar Downloads
 
 peg sshcmd-node luke-rhee-cluster 2 "sudo mv Downloads/kafka-connect-twitter-0.1-jar-with-dependencies.jar /usr/share/java/kafka"
 

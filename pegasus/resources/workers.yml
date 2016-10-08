@@ -1,10 +1,10 @@
 purchase_type: on_demand
 subnet_id: subnet-d96b46bd
-num_instances: 3
+num_instances: 7
 key_name: luke-rhee
 security_group_ids: sg-6d46ad14
-instance_type: m3.xlarge
-tag_name: luke-rhee-cluster
+instance_type: m4.xlarge
+tag_name: lrh
 vol_size: 80
 role: worker
 use_eips: true

@@ -7,8 +7,10 @@ wait
 
 eval `ssh-agent -s`
 
-peg fetch luke-rhee-cluster
+peg fetch lrh
 
-peg install luke-rhee-cluster ssh
-peg install luke-rhee-cluster aws
-peg install luke-rhee-cluster hadoop
+peg install lrh ssh
+peg install lrh aws
+
+peg install lrh zookeeper
+peg install lrh kafka
