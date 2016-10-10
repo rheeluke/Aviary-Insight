@@ -1,0 +1,15 @@
+{
+  "queryType" : "topN",
+  "dataSource" : "tweets-kafka",
+  "intervals" : ["2016-06-27/2016-06-28"],
+  "granularity" : "all",
+  "dimension" : "hashtags",
+  "metric" : "count",
+  "threshold" : 10,
+  "aggregations" : [
+    {
+      "type" : "count",
+      "name" : "count",
+    }
+  ]
+}

@@ -21,7 +21,7 @@
       {
         "name": "count",
         "type": "count"
-      },
+      }
     ],
     "granularitySpec": {
       "type": "uniform",
