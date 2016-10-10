@@ -32,7 +32,7 @@
   "ioConfig": {
     "topic": "stream-twitter",
     "consumerProperties": {
-      "bootstrap.servers": "ec2-54-70-146-1.us-west-2.compute.amazonaws.com:9092,ec2-54-148-245-151.us-west-2.compute.amazonaws.com:9092,ec2-52-34-186-244.us-west-2.compute.amazonaws.com:9092,ec2-52-38-218-132.us-west-2.compute.amazonaws.com:9092,ec2-52-42-233-20.us-west-2.compute.amazonaws.com:9092"
+      "bootstrap.servers": "ec2-54-70-146-1.us-west-2.compute.amazonaws.com:9092,ec2-52-34-186-244.us-west-2.compute.amazonaws.com:9092,ec2-52-38-218-132.us-west-2.compute.amazonaws.com:9092,ec2-52-35-196-76.us-west-2.compute.amazonaws.com:9092,ec2-52-42-233-20.us-west-2.compute.amazonaws.com:9092"
     }
   }
 }

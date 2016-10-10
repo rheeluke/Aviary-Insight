@@ -15,7 +15,7 @@ def computeQuery(filter=None):
             granularity='all',
             dimension='hashtags',
             metric='count',
-            threshold=4,
+            threshold=11,
             aggregations={'count': aggregators.count('count')},
             filter=Dimension('hashtags') == filter
         )
@@ -24,11 +24,11 @@ def computeQuery(filter=None):
     else:
         top = query.topn(
             datasource='tweets-kafka',
-            intervals='2015-06-27/2018-06-28',
+            intervals='2016-10-09/2018-06-28',
             granularity='all',
             dimension='hashtags',
             metric='count',
-            threshold=4,
+            threshold=10,
             aggregations={'count': aggregators.count('count')},
         )
         return top[0]['result']

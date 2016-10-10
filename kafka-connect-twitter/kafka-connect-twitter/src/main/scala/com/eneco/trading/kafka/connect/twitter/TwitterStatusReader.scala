@@ -56,9 +56,9 @@ object StatusToStringKeyValue extends StatusToSourceRecord {
       null,
       Schema.STRING_SCHEMA,
       status.getHashtagEntities.toSeq.length.toString,
+      //status.getCreatedAt.toString
       Schema.STRING_SCHEMA,
-      "{\"created_at\":\"%s\",\"hashtags\":%s}".format(
-        status.getCreatedAt.toString,
+      "{\"created_at\":\"2016-10-09T00:00:00.000Z\",\"hashtags\":%s}".format(
         status.getHashtagEntities.toSeq
           .map(hashtag => hashtag.getText)
           .mkString("[\"", "\",\"", "\"]")
