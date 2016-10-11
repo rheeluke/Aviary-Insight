@@ -25,7 +25,7 @@
 </style>
 <body>
   {% block content %}
-  <form method="get" action="/go">
+  <form method="get" action="">
     <input type="text" name="query" placeholder="Placeholder text">
     <button type="submit" name="push">Submit</button>
   </form>
@@ -54,7 +54,7 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.json("/root/".concat({{ rootFilter }}), function(error, top) {
+d3.json("/data", function(error, top) {
   if (error) throw error;
 
   root = top;
@@ -201,9 +201,6 @@ function myclick(d) {
     update(d);
   });
 
-  // d.children.push({"name":"sally"});
-  // d["children"].push({"name":"sally"});
-  // update(d);
 }
 
 </script>
