@@ -13,7 +13,7 @@
 }
 
 .node text {
-  font: 30px sans-serif;
+  font: 16px sans-serif;
 }
 
 .link {
@@ -54,12 +54,10 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+d3.json("/root/".concat({{ rootFilter }}), function(error, top) {
+  if (error) throw error;
 
-// d3.json("/data", function(error, top) {
-//d3.json("static/flare.json", function(error, top) {
-//  if (error) throw error;
-
-  root = {"name":"frank","children":[{"name":"bart"}]};
+  root = top;
   root.x0 = height / 2;
   root.y0 = 0;
 
@@ -71,12 +69,10 @@ var svg = d3.select("body").append("svg")
     }
   }
 
-  // root.children.forEach(collapse);
+  root.children.forEach(collapse);
   update(root);
-// });
+});
 
-root["children"].push({"name":"sally"});
-update(root);
 d3.select(self.frameElement).style("height", "800px");
 
 function update(source) {
@@ -96,7 +92,7 @@ function update(source) {
   var nodeEnter = node.enter().append("g")
       .attr("class", "node")
       .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
-      .on("click", click);
+      .on("click", myclick);
 
   nodeEnter.append("circle")
       .attr("r", 1e-6)
@@ -177,6 +173,37 @@ function click(d) {
      d._children = null;
    }
   update(d);
+}
+
+function myclick(d) {
+  click(d);
+
+  var pointer = d;
+  var myfilter = pointer.name;
+  while (pointer.name != 'top') {
+    pointer = pointer.parent;
+    myfilter = myfilter.concat("badstr").concat(pointer.name);
+  }
+  d3.json("/data/".concat(myfilter), function(error, top) {
+    if (error) throw error;
+
+    d.children = top.children;
+
+    function collapse(d) {
+      if (d.children) {
+        d._children = d.children;
+        d._children.forEach(collapse);
+        d.children = null;
+      }
+    }
+
+    d.children.forEach(collapse);
+    update(d);
+  });
+
+  // d.children.push({"name":"sally"});
+  // d["children"].push({"name":"sally"});
+  // update(d);
 }
 
 </script>
