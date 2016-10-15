@@ -1,7 +1,7 @@
 {
   "type": "kafka",
   "dataSchema": {
-    "dataSource": "tweets-kafka",
+    "dataSource": "twitter-kafka",
     "parser": {
       "type": "string",
       "parseSpec": {

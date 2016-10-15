@@ -1,6 +1,6 @@
 #!/bin/bash
 
-peg sshcmd-node lrh 1 "curl -XPOST -H'Content-Type: application/json' -d @quickstart/tweets-kafka-supervisor.json http://ec2-54-70-146-1.us-west-2.compute.amazonaws.com:8090/druid/indexer/v1/supervisor"
+#peg sshcmd-node lrh 1 "curl -XPOST -H'Content-Type: application/json' -d @tweets-kafka-supervisor.json http://ec2-54-70-146-1.us-west-2.compute.amazonaws.com:8090/druid/indexer/v1/supervisor"
 
 
 #curl -XPOST -H'Content-Type: application/json' -d @quickstart/tweets-kafka-supervisor.json http://ec2-54-70-146-1.us-west-2.compute.amazonaws.com:8090/druid/indexer/v1/supervisor

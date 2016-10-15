@@ -1,8 +1,13 @@
 from app import app
 
-from flask import Flask, render_template, jsonify, url_for
+import datetime
+from flask import Flask
+from flask import jsonify
+from flask import render_template
+from flask import url_for
 from pydruid.client import PyDruid
-from pydruid.utils import aggregators, filters
+from pydruid.utils import aggregators
+from pydruid.utils import filters
 
 
 @app.route('/')
@@ -29,6 +34,10 @@ query = PyDruid(
 
 def computeQuery(myfilter):
 
+    current_time = datetime.datetime.utcnow()
+    previous_time = current_time - datetime.timedelta(1)
+    interval = previous_time.isoformat() + '/' + current_time.isoformat()
+
     if myfilter and 'badstr' in myfilter:
 
         filterList = myfilter.split('badstr')[:-1]
@@ -41,9 +50,10 @@ def computeQuery(myfilter):
                 fields=[filters.Dimension('hashtags') == item
                         for item in filterList]
             )
+
         top = query.topn(
-            datasource='tweets-kafka',
-            intervals='2015-06-27/2018-06-28',
+            datasource='twitter-kafka',
+            intervals=interval,
             granularity='all',
             dimension='hashtags',
             metric='count',
@@ -51,11 +61,13 @@ def computeQuery(myfilter):
             aggregations={'count': aggregators.count('count')},
             filter=queryFilter
         )
+
         return top[0]['result'][len(filterList):]
+
     else:
         top = query.topn(
-            datasource='tweets-kafka',
-            intervals='2016-10-08/2018-06-28',
+            datasource='twitter-kafka',
+            intervals=interval,
             granularity='all',
             dimension='hashtags',
             metric='count',
