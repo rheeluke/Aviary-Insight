@@ -24,7 +24,11 @@
 
 </style>
 <body>
-<script src="//d3js.org/d3.v3.min.js"></script>
+    <h1 style="text-align:center;">Hashtag-Hashtag</h1>
+    <h3 style="text-align:center;">by Luke Young Rhee</h2>
+    <h3 style="text-align:center;"><a href ="https://github.com/rheeluke/Hashtag-Hashtag">github.com/rheeluke/Hashtag-Hashtag</a></h2>
+    <h2 style="margin-left:100px;">Discover which hashtags have occured most frequently with the nodes in its tree path:</h2>
+    <script src="//d3js.org/d3.v3.min.js"></script>
 <script>
 
 var margin = {top: 20, right: 120, bottom: 20, left: 120},
@@ -84,8 +88,9 @@ function update(source) {
   // Enter any new nodes at the parent's previous position.
   var nodeEnter = node.enter().append("g")
       .attr("class", "node")
+      .attr("title", function(d) { return d.count; })
       .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
-      .on("click", myclick);
+      .on("click", myclick)
 
   nodeEnter.append("circle")
       .attr("r", 1e-6)

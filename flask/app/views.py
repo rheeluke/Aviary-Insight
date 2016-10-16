@@ -23,9 +23,9 @@ def data(myfilter=None):
     children = []
     for hashmap in top:
         children.append(
-            {'name': hashmap['hashtags'],
+            {'name': hashmap['hashtags'], 'count': hashmap['count'],
              'children': [{'name': 'loading...'}]})
-    my_data = {'name': 'top', 'children': children}
+    my_data = {'name': 'top', 'count': 0, 'children': children}
     return jsonify(my_data)
 
 query = PyDruid(
@@ -52,7 +52,7 @@ def computeQuery(myfilter):
             )
 
         top = query.topn(
-            datasource='twitter-kafka',
+            datasource='twitter',
             intervals=interval,
             granularity='all',
             dimension='hashtags',
@@ -66,7 +66,7 @@ def computeQuery(myfilter):
 
     else:
         top = query.topn(
-            datasource='twitter-kafka',
+            datasource='twitter',
             intervals=interval,
             granularity='all',
             dimension='hashtags',
