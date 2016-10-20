@@ -88,7 +88,7 @@ function update(source) {
   // Enter any new nodes at the parent's previous position.
   var nodeEnter = node.enter().append("g")
       .attr("class", "node")
-      .attr("title", function(d) { return d.count; })
+      // .attr("title", function(d) { return d.count; })
       .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
       .on("click", myclick)
 
@@ -100,7 +100,7 @@ function update(source) {
       .attr("x", function(d) { return d.children || d._children ? -10 : 10; })
       .attr("dy", ".35em")
       .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
-      .text(function(d) { return d.name; })
+      .text(function(d) { return "(" + d.count + ") " + d.name; })
       .style("fill-opacity", 1e-6);
 
   // Transition nodes to their new position.

@@ -25,7 +25,7 @@ def data(myfilter=None):
         children.append(
             {'name': hashmap['hashtags'], 'count': hashmap['count'],
              'children': [{'name': 'loading...'}]})
-    my_data = {'name': 'top', 'count': 0, 'children': children}
+    my_data = {'name': 'top', 'children': children}
     return jsonify(my_data)
 
 query = PyDruid(
