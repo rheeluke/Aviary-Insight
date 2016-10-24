@@ -65,4 +65,4 @@ Hashtags from a tweet are stored together as a list of strings under the hashtag
 The current system uses queries over the last 24 hours. Incoming Twitter data comes in at a rate of approximately 1k to 2k tweets per min and resents 1% of the Twitter Firehose. At last check, the query was processing over 92.6k rows.
 
 ## Presentation
-[Presentation](https://goo.gl/26PQ1X) and demo [video](https://youtu.be/s7U2mIi4SOE) for Hashtag-Hashtag.
+[Presentation](https://goo.gl/26PQ1X) and demo [video](https://youtu.be/GwismjdBSJ8) for Hashtag-Hashtag.
