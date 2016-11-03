@@ -1,4 +1,4 @@
-# [Hashtag-Hashtag](http://htht.tech)
+# [Hashtag-Hashtag](https://youtu.be/GwismjdBSJ8)
 
 ## Table of contents
 1. [Introduction](README.md#introduction)
@@ -11,7 +11,7 @@
 ## Introduction
 [Back to Table of contents](README.md#table-of-contents)
 
-[Hashtag-Hashtag](http://htht.tech) is a Twitter analytics platform designed to explore the realtime relationships between Twitter hashtags. As a big data pipeline it makes use of current open source technologies atop of AWS clusters to ingest, process and display streaming data from twitter.
+[Hashtag-Hashtag](https://youtu.be/GwismjdBSJ8) is a Twitter analytics platform designed to explore the realtime relationships between Twitter hashtags. As a big data pipeline it makes use of current open source technologies atop of AWS clusters to ingest, process and display streaming data from twitter.
 
 On load, the application returns a tree graph whose leaves represent to the most frequently occurring hashtags over the last 24 hours. On node click, the application will query the database and append to the node the most frequently occurring hashtags that have appeared in a tweet with the hashtag-nodes in its path. This process is repeatable.
 
@@ -21,7 +21,7 @@ On load, the application returns a tree graph whose leaves represent to the most
 ## AWS Clusters
 [Back to Table of contents](README.md#table-of-contents)
 
-[Hashtag-Hashtag](http://htht.tech) runs on three clusters on 8 AWS instances:
+[Hashtag-Hashtag](https://youtu.be/GwismjdBSJ8) runs on three clusters on 8 AWS instances:
 <ul>
 <li>5 m4.xlarge nodes for Zookeeper and Kafka</li>
 <li>3 m4.xlarge nodes for Druid </li>
